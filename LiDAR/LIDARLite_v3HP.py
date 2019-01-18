@@ -4,13 +4,7 @@ import ctypes
 
 """
 !!!!!!variable names list!!!!!!:
-uint8_t configuration 
-uint8_t lidarliteAddress
-uint8_t disableDefault
-uint8_t regAddr
 uint8_t * dataBytes (POINTER)
-uint16_t numBytes
-uint8_t lidarliteAddress
 uint16_t numberOfReadings
 VOID FXN: configure
     uint8_t sigCountMax
@@ -42,7 +36,5 @@ VOID FXn: LIDARLite_v3HP::correlationRecordToSerial
 
 class LIDARLite_v3HP(ctypes.Structure):
     _fields_ = [("configuration", ctypes.c_uint8), ("lidarliteAddress", ctypes.c_uint8),
-                ("newAddress", ctypes.c_uint8), ("disableDefault", ctypes.c_uint8),
-                ("", ctypes.c_uint16), ("", ctypes.c_uint8), ("", ctypes.c_uint8), ("", ctypes.c_uint8),
-                ("", ctypes.c_uint8), ("", ctypes.c_uint8), ("", ctypes.c_uint8), ("", ctypes.c_uint8),
-                ("", ctypes.c_uint8)]
+                ("regAddr", ctypes.c_uint8), ("disableDefault", ctypes.c_uint8),
+                ("numBytes", ctypes.c_uint16), ("numberOfReadings", ctypes.c_uint16)]
