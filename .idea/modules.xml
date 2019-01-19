@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/Autonomy_Dependencies.iml" filepath="$PROJECT_DIR$/.idea/Autonomy_Dependencies.iml" />
+      <module fileurl="file://$USER_HOME$/PycharmProjects/Autonomy_Dependencies/.idea/Autonomy_Dependencies.iml" filepath="$USER_HOME$/PycharmProjects/Autonomy_Dependencies/.idea/Autonomy_Dependencies.iml" />
     </modules>
   </component>
 </project>

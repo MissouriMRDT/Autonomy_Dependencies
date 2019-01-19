@@ -21,6 +21,9 @@
 #include <stdarg.h>
 #include <stdint.h>
 #include "LIDARLite_v3HP.h"
+#include <boost/python.hpp>
+
+using namespace boost::python;
 
 /*------------------------------------------------------------------------------
   Configure
@@ -385,3 +388,23 @@ void LIDARLite_v3HP::correlationRecordToSerial(
     dataBytes[0] = 0;
     write(0x40, dataBytes, 1, lidarliteAddress);
 } /* LIDARLite_v3HP::correlationRecordToSerial */
+
+BOOST_PYTHON_MODULE(LIDARLite_v3HP)
+{
+    class_<LIDARLite_v3HP>("LIDARLite_v3HP", no _init)
+        .def_readwrite("configuration", &LIDARLite_v3HP::configuration)
+        .def_read("lidarliteAddress", &LIDARLite_v3HP::lidarliteAddress)
+        .def_readwrite("newAddress", &LIDARLite_v3HP::newAddress)
+        .def_readwrite("disableDefault", &LIDARLite_v3HP::disableDefault)
+        .def_readwrite("regAddr", &LIDARLite_v3HP::regAddr)
+        .def_readwrite("numBytes", &LIDARLite_v3HP::numBytes)
+        .def("configure", &LIDARite_v3HP::configure)
+        .def("setI2Caddr", &LIDARLite_v3HP::setI2Caddr)
+        .def("readDistance", &LIDARLite_v3HP::readDistance)
+        .def("waitForBusy", &LIDARLite_v3HP::waitForBusy)
+        .def("getBusyFlag", &LIDARLite_v3HP::getBusyFlag)
+        .def("takeRange", &LIDARLite_v3HP::takeRange)
+        .def("write", &LIDARLite_v3HP::write)
+        .def("read", &LIDARLite_v3HP::read)
+        .def("correlationRecordToSerial", &LIDARLite_v3HP::correlationRecordToSerial)
+}
